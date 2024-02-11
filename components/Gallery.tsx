@@ -95,7 +95,7 @@ export const Gallery: React.SFC<GalleryProps> = (GalleryProps) => {
                   className="cursor-pointer object-cover w-full filter brightness-90 hover:brightness-110 transition-all duration-200"
                   placeholder="blur"
                   blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII="
-                />: <iframe width="500" height="400"  src={`https://www.youtube.com/embed/${img.url}`} frameborder="0" allowfullscreen></iframe>}
+                />: <iframe width="350" height="350"  src={`https://www.youtube.com/embed/${img.url}`} frameBorder="0" allowFullScreen></iframe>}
               
               
                 <div className="text-center py-2 top-0 absolute w-full">

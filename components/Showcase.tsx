@@ -6,7 +6,7 @@ import useDatabase from "../hooks/useDatabase";
 import { ImageComponent } from "./ImageComponent";
 
 import { Gallery } from "./Gallery";
-import { images, videos } from "./constants";
+import { images } from "./constants";
 import YoutubeEmbed from "./YoutubeEmbed";
 
 export interface ShowcaseProps {
