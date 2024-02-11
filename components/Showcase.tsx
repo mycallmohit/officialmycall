@@ -6,7 +6,7 @@ import useDatabase from "../hooks/useDatabase";
 import { ImageComponent } from "./ImageComponent";
 
 import { Gallery } from "./Gallery";
-import { images } from "./constants";
+import { images, videos } from "./constants";
 import YoutubeEmbed from "./YoutubeEmbed";
 
 export interface ShowcaseProps {
@@ -36,17 +36,14 @@ export const Showcase: React.SFC<ShowcaseProps> = (ShowcaseProps) => {
                   setIsGalleryOpen(true);
                   setCurrentIndex(index);
                 }}
+                type={img.type}
                 key={index}
                 url={img.url}
                 label={img.label}
                 description={img.description}
               />
             );
-          })}
-          <YoutubeEmbed embedId="Eel4Kv-WEhg" />
-          <YoutubeEmbed embedId="eZmQQJ44X_E" />
-          <YoutubeEmbed embedId="XEV26vxDsmE" />
-         
+          })}         
         </main>
       </section>
       {isGalleryOpen && (

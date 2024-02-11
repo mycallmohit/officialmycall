@@ -7,6 +7,7 @@ import SwiperCore, { Navigation, Pagination, Keyboard, Lazy } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import { motion } from "framer-motion";
+import YoutubeEmbed from "./YoutubeEmbed";
 
 SwiperCore.use([Pagination, Navigation, Keyboard, Lazy]);
 
@@ -85,7 +86,7 @@ export const Gallery: React.SFC<GalleryProps> = (GalleryProps) => {
                 key={index}
                 className="relative bg-gray-50 bg-opacity-95 w-full h-full grid place-items-center"
               >
-                <Image
+                {img.type==='image'?  <Image
                   loader={firebaseLoader}
                   src={img.url}
                   alt={img.label}
@@ -94,7 +95,9 @@ export const Gallery: React.SFC<GalleryProps> = (GalleryProps) => {
                   className="cursor-pointer object-cover w-full filter brightness-90 hover:brightness-110 transition-all duration-200"
                   placeholder="blur"
                   blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII="
-                />
+                />: <iframe width="500" height="400"  src={`https://www.youtube.com/embed/${img.url}`} frameborder="0" allowfullscreen></iframe>}
+              
+              
                 <div className="text-center py-2 top-0 absolute w-full">
                   <h1 className="my-2 font-light text-lg">{img.label}</h1>
                 </div>
