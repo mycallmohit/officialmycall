@@ -3,7 +3,6 @@ import { useState } from "react";
 
 import Link from "next/link";
 
-import { Progressbar } from "./Progressbar";
 
 interface selected {
   image: File;
@@ -51,7 +50,7 @@ export const UploadForm: React.SFC = () => {
         autoComplete={"off"}
       >
         <h1 className="text-4xl font-light my-8 text-center">Upload</h1>
-        {image && <Progressbar image={image} setImage={setImage} />}
+    
         <div className="relative my-4 py-6 row-span-1 border-2 rounded-lg border-dashed border-gray-500 w-full grid place-items-center">
           <label
             htmlFor="imageUpload"

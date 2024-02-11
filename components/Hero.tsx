@@ -8,13 +8,15 @@ import { uniqueFunction } from "../hooks/uniqueFunction";
 // Using require as normal import causes typescript error
 const Fade = require("react-reveal/Fade");
 import { data } from "../mock/mock";
+import YoutubeEmbed from "./YoutubeEmbed";
 
 const modelImageLoader = (props: any) => {
   return props.src.toString();
 };
 
-export const Hero: React.SFC = () => {
+export const Hero = ({userData}: any) => {
   const [imageDimensions, setImageDimensions] = React.useState([0, 0]);
+console.log(userData)
 
   React.useEffect(() => {
     setImageDimensions(uniqueFunction(/* modelImage */) || []); // to get initial image dimensions
@@ -37,24 +39,25 @@ export const Hero: React.SFC = () => {
       <Fade left>
         <div className="flex flex-col justify-evenly order-2 md:order-1">
           <h1 className="text-5xl md:text-7xl md:w-min my-4 md:m-0 font-light leading-snug">
-            Meet {data.name}
+            Meet {userData?.petname}
           </h1>
           <h2 className="font-extralight text-2xl my-4 md:m-0 text-gray-700">
-            {data.job}
+            {userData?.profession}
           </h2>
         </div>
       </Fade>
       <Fade>
         <div className="relative grid place-items-center order-1 md:order-2">
-          <Image
+          {userData?.media?.type==='image' ? <Image
             loader={modelImageLoader}
-            src="https://res.cloudinary.com/doxkfuxtg/image/upload/v1707410521/MyCall_1_kbqit6.jpg"
+            src={userData?.media?.url}
             alt="Picture of artist"
             objectFit="contain"
             priority={true}
             height={imageDimensions[0]}
             width={imageDimensions[0]}
-          />
+          />: <YoutubeEmbed embedId={userData?.media?.url} />}
+
         </div>
       </Fade>
     </section>

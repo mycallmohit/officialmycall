@@ -10,7 +10,7 @@ import { data } from "../mock/mock";
 import Image from "next/dist/client/image";
 import soundCloudIcon from "../public/icons/soundcloud-svgrepo-com.svg";
 
-export const Navbar: React.SFC = () => {
+export const Navbar= ({userData}: any) => {
   const [isMobile, setIsMobile] = useState(false);
 
   return (
@@ -18,7 +18,7 @@ export const Navbar: React.SFC = () => {
       <nav className="py-8 col-span-10 col-start-2 col-end-12 flex flex-row justify-between items-center">
         <Link href="/" passHref>
           <span className="font-extralight text-2xl cursor-pointer">
-            {data.name}
+            {userData?.petname}
           </span>
         </Link>
         <ul className="hidden md:flex flex-row items-center gap-2">

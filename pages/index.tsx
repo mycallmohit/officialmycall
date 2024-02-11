@@ -9,19 +9,24 @@ import { Sell } from "../components/Sell";
 import { motion } from "framer-motion";
 
 import Head from "next/head";
-import { data } from "../mock/mock";
+
+import { useFirebase } from "../hooks/useFirebase";
 
 export default function Home() {
+  const {data } = useFirebase()
+  const userData: any = data.find((item: any) => item.type === "userData");
+  const mediaData: any = data.find((item: any) => item.type === "media");
+
   return (
     <>
       <Head>
-        <title>{data.name}</title>
+        <title>{userData?.petname}</title>
       </Head>
       <motion.div layout>
         <Layout>
-          <Navbar />
-          <Hero />
-          <Showcase limit={true} />
+          <Navbar userData ={userData}/>
+          <Hero userData ={userData} />
+          <Showcase mediaData={mediaData}  limit={true} />
           <Contact />
           <Footer />
         </Layout>

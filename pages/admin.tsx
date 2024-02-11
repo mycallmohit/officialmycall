@@ -1,5 +1,4 @@
 import { Layout } from "../components/Layout";
-import { LoginForm } from "../components/LoginForm";
 
 import { motion } from "framer-motion";
 
@@ -14,7 +13,7 @@ export default function Home() {
       </Head>
       <motion.div layout>
         <Layout>
-          <LoginForm />
+            Hey
         </Layout>
       </motion.div>
     </>

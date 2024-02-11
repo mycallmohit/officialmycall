@@ -4,18 +4,21 @@ import { Showcase } from "../components/Showcase";
 import { Footer } from "../components/Footer";
 import { motion } from "framer-motion";
 import Head from "next/head";
-import { data } from "../mock/mock";
+import { useFirebase } from "../hooks/useFirebase";
 
 export default function Home() {
+  const {data} = useFirebase()
+  const mediaData: any = data.find((item: any) => item.type === "media");
+  const userData: any = data.find((item: any) => item.type === "userData");
   return (
     <>
       <Head>
-        <title>{data.name} - Portfolio</title>
+        <title>{userData?.name} - Portfolio</title>
       </Head>
       <motion.div layout>
         <Layout>
           <Navbar />
-          <Showcase limit={false} />
+          <Showcase mediaData={mediaData} limit={false} />
           <Footer />
         </Layout>
       </motion.div>

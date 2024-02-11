@@ -31,15 +31,17 @@
     "format": "prettier --write ."
   },
   "dependencies": {
-    "firebase": "^8.6.8",
+    "@firebase/app": "^0.9.27",
+    "@firebase/app-types": "^0.9.0",
+    "firebase": "^10.8.0",
     "framer-motion": "^4.1.17",
     "nanoid": "^3.1.23",
     "next": "11.0.0",
+    "next-offline": "^5.0.5",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-reveal": "^1.2.2",
-    "swiper": "^6.7.5",
-    "next-offline": "^5.0.5"
+    "swiper": "^6.7.5"
   },
   "devDependencies": {
     "@types/react": "17.0.11",

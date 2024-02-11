@@ -11,13 +11,15 @@ const bioImageLoader = (props: any) => {
   return props.src.toString();
 };
 
-export const Bio: React.SFC = () => {
+export const Bio = ({bioData}:{bioData:any}) => {
+
+console.log(bioData?.media?.url)
   return (
     <>
       <section className="py-8 col-span-10 col-start-2 col-end-12 text-center text-gray-600 font-light">
         <Image
           loader={bioImageLoader}
-          src="https://res.cloudinary.com/doxkfuxtg/image/upload/v1707411173/Web3_2_nqgmzp.png"
+          src={bioData?.media?.url|| "https://res.cloudinary.com/doxkfuxtg/image/upload/v1707411138/Web_2_yme4yu.png"}
           alt="Picture for Bio"
           objectFit="contain"
           width={1200}
@@ -25,13 +27,13 @@ export const Bio: React.SFC = () => {
         />
         <Fade cascade>
           <h1 className="text-xl my-6 w-full md:w-4/5 text-center mx-auto">
-            This is me !
+            {bioData?.data?.para1}
           </h1>
           <p className="text-base my-6 w-full md:w-4/5 text-justify mx-auto">
-            {data.aboutme_para1}
+          {bioData?.data?.para2}
           </p>
           <p className="text-base my-6 w-full md:w-4/5 text-justify mx-auto">
-            {data.aboutme_para2}
+          {bioData?.data?.para3}
           </p>
         </Fade>
         <Link href="/contact" passHref>

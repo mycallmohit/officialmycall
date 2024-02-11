@@ -6,18 +6,21 @@ import { Footer } from "../components/Footer";
 import { motion } from "framer-motion";
 
 import Head from "next/head";
-import { data } from "../mock/mock";
+import { useFirebase } from "../hooks/useFirebase";
 
 export default function Home() {
+  const {data} = useFirebase()
+  const userData: any = data.find((item: any) => item.type === "userData");
+  const bioData: any = data.find((item: any) => item.type === "bio");
   return (
     <>
       <Head>
-        <title>{data.name} - Bio</title>
+        <title>{userData?.name} - Bio</title>
       </Head>
       <motion.div layout>
         <Layout>
           <Navbar />
-          <Bio />
+          <Bio bioData={bioData}/>
           <Footer />
         </Layout>
       </motion.div>
